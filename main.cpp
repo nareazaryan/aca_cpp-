@@ -3,6 +3,9 @@
 #include <iostream>
 using namespace std;
 
+//35. macros which takes 2 numbers and returns min
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+
 
 // 38. Redefine static operator new and operator delete
 // void *operator new(size_t size) {
