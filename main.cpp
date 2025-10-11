@@ -3,6 +3,8 @@
 #include <iostream>
 using namespace std;
 
+
+// 38. Redefine static operator new and operator delete
 // void *operator new(size_t size) {
 //   cout << "Costum made new operator" << endl;
 //   void *p = malloc(size);
