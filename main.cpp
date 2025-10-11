@@ -6,13 +6,6 @@ using namespace std;
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 //  38. Redefine static operator new and operator delete
-// void *operator new(size_t size) {
-//   cout << "Costum made new operator" << endl;
-//   void *p = malloc(size);
-//   if (!p)
-//     return nullptr;
-//   return p;
-// }
 
 void* operator new(size_t size) {
     cout << "Costum made new operator" << endl;
