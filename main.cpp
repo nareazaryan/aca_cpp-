@@ -2,14 +2,20 @@
 #include <iostream>
 using namespace std;
 
-//// 41. Write a program that takes x and y as input (using int main(int argc,
-///char* argv[])),
-// creates dynamic matrix of size x by y,
+//// 42. Write a program that takes x and y as input (using int main(int argc,
+/// char* argv[])),
+// creates dynamic matrix of size x by y using malloc and free
 
 int **CreateMatrix(int rows, int cols) {
-  int **mat = new int *[rows];
+  int **mat = (int **)malloc(rows * sizeof(int *));
+  if (mat == nullptr) {
+    return nullptr;
+  }
   for (int i = 0; i < rows; i++) {
-    mat[i] = new int[cols];
+    mat[i] = (int *)malloc(cols * sizeof(int));
+    if (mat == nullptr) {
+    return nullptr;
+  }
   }
 
   return mat;
@@ -33,7 +39,7 @@ void PrintMatrix(int **mat, int rows, int cols) {
 }
 
 int main(int argc, char *argv[]) {
-
+// atoi() function -> string type number to integer
   int x = atoi(argv[1]);
   int y = atoi(argv[2]);
 
@@ -45,6 +51,51 @@ int main(int argc, char *argv[]) {
 
   return 0;
 }
+
+// //// 41. Write a program that takes x and y as input (using int main(int
+// argc,
+// ///char* argv[])),
+// // creates dynamic matrix of size x by y,
+
+// int **CreateMatrix(int rows, int cols) {
+//   int **mat = new int *[rows];
+//   for (int i = 0; i < rows; i++) {
+//     mat[i] = new int[cols];
+//   }
+
+//   return mat;
+// }
+
+// void InitMatrix(int **mat, int rows, int cols) {
+//   for (int i = 0; i < rows; i++) {
+//     for (int j = 0; j < cols; j++) {
+//       mat[i][j] = rand() % 10;
+//     }
+//   }
+// }
+
+// void PrintMatrix(int **mat, int rows, int cols) {
+//   for (int i = 0; i < rows; i++) {
+//     for (int j = 0; j < cols; j++) {
+//       cout << mat[i][j] << " ";
+//     }
+//     cout << endl;
+//   }
+// }
+
+// int main(int argc, char *argv[]) {
+
+//   int x = atoi(argv[1]);
+//   int y = atoi(argv[2]);
+
+//   //  cout << x << " " << y;
+
+//   int **matrix = CreateMatrix(x, y);
+//   InitMatrix(matrix, x, y);
+//   PrintMatrix(matrix, x, y);
+
+//   return 0;
+// }
 
 //// 35. macros which takes 2 numbers and returns min
 // #define MIN(a, b) ((a) < (b) ? (a) : (b))
