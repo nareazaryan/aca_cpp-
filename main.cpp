@@ -14,8 +14,8 @@ int **CreateMatrix(int rows, int cols) {
   for (int i = 0; i < rows; i++) {
     mat[i] = (int *)malloc(cols * sizeof(int));
     if (mat == nullptr) {
-    return nullptr;
-  }
+      return nullptr;
+    }
   }
 
   return mat;
@@ -38,8 +38,16 @@ void PrintMatrix(int **mat, int rows, int cols) {
   }
 }
 
+void DeallocMatrix(int **mat, int rows) {
+  cout << "Matrix deallocated" << endl;
+  for (int i = 0; i < rows; i++) {
+    free(mat[i]);
+  }
+  free(mat);
+}
+
 int main(int argc, char *argv[]) {
-// atoi() function -> string type number to integer
+  // atoi() function -> string type number to integer
   int x = atoi(argv[1]);
   int y = atoi(argv[2]);
 
@@ -48,6 +56,7 @@ int main(int argc, char *argv[]) {
   int **matrix = CreateMatrix(x, y);
   InitMatrix(matrix, x, y);
   PrintMatrix(matrix, x, y);
+  DeallocMatrix(matrix, x);
 
   return 0;
 }
