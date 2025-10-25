@@ -1,0 +1,54 @@
+
+// 44: Աբստրակցիայի ենթարկել Car class-ը գրել նվազագույն 5 մեթող և պահել
+// նվազագույնը 5 member
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+class Car {
+private:
+  string c_name;
+  string c_model;
+  int c_year;
+  string c_color;
+  string c_engineType;
+
+public:
+  Car(string name, string model, int year, string color, string engineType);
+  ~Car();
+  string GetName();
+  string GetModel();
+  int GetYear();
+  void ChangingColor(string new_color);
+  void DisplayInfo() const;
+};
+
+Car::Car(string name, string model, int year, string color, string engineType)
+    : c_name(name), c_model(model), c_year(year), c_color(color),
+      c_engineType(engineType){};
+
+string Car::GetName() { return c_name; }
+
+string Car::GetModel() { return c_model; }
+
+int Car::GetYear() { return c_year; }
+
+void Car::ChangingColor(string new_color) { c_color = new_color; }
+
+void Car::DisplayInfo() const {
+  cout << "Name: " << c_name << endl;
+  cout << "Model: " << c_model << endl;
+  cout << "Year: " << c_year << endl;
+  cout << "Color: " << c_color << endl;
+  cout << "Engine Type: " << c_engineType << endl;
+}
+
+Car::~Car() {}
+
+int main() {
+  Car myCar("Bmw", "m5", 2025, "black", "diesel");
+
+  myCar.DisplayInfo();
+}
