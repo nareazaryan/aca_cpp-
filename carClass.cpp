@@ -6,7 +6,6 @@
 #include <string>
 using namespace std;
 
-
 class Car {
 private:
   string c_name;
@@ -45,7 +44,36 @@ void Car::DisplayInfo() const {
   cout << "Engine Type: " << c_engineType << endl;
 }
 
-Car::~Car() {}
+Car::~Car(){};
+
+class Driver {
+private:
+  string d_name;
+  int d_age;
+  Car d_car; // Driver has-a Car
+
+public:
+  Driver(const string &name, int age, const Car &c);
+
+  void SetCar(const Car &c);
+
+  void DisplayDriverInfo() const;
+};
+
+Driver::Driver(const string &name, int age, const Car &c)
+    : d_name(name), d_age(age), d_car(c) {}
+
+void Driver::SetCar(const Car &c) { d_car = c; }
+
+void Driver::DisplayDriverInfo() const {
+    cout << "Driver Info" << endl;
+    cout << "Name: " << d_name << endl;
+    cout << "Age: " << d_age << endl;
+    cout << endl;
+    d_car.DisplayInfo();
+  }
+
+
 
 int main() {
   Car myCar("Bmw", "m5", 2025, "black", "diesel");
