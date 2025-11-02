@@ -2,6 +2,10 @@
 #include <iostream>
 using namespace std;
 
+// - 49;50
+
+
+
 //// 42. Write a program that takes x and y as input (using int main(int argc,
 /// char* argv[])),
 // creates dynamic matrix of size x by y using malloc and free
