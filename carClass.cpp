@@ -2,9 +2,9 @@
 // 44: Աբստրակցիայի ենթարկել Car class-ը գրել նվազագույն 5 մեթող և պահել
 // նվազագույնը 5 member
 
-//then added 46
+// then added 46
 
-//46: Ստեղծել car engine և driver class-ները և ստեղծել նրանց հարաբերությունները
+// 46: Ստեղծել car engine և driver class-ները և ստեղծել նրանց հարաբերությունները
 
 #include <iostream>
 #include <string>
@@ -26,11 +26,34 @@ public:
   int GetYear();
   void ChangingColor(string new_color);
   void DisplayInfo() const;
+  Car(const Car &other);
+  Car &operator=(const Car &other);
 };
 
 Car::Car(string name, string model, int year, string color, string engineType)
     : c_name(name), c_model(model), c_year(year), c_color(color),
       c_engineType(engineType){};
+
+Car::Car(const Car &other) {
+  c_name = other.c_name;
+  c_model = other.c_model;
+  c_year = other.c_year;
+  c_color = other.c_color;
+  c_engineType = other.c_engineType;
+  cout << "Copy constructor called!" << endl;
+}
+
+Car &Car::operator=(const Car &other) {
+  if (this != &other) { // Check for self-assignment
+    c_name = other.c_name;
+    c_model = other.c_model;
+    c_year = other.c_year;
+    c_color = other.c_color;
+    c_engineType = other.c_engineType;
+    cout << "Assignment operator called!" << endl;
+  }
+  return *this;
+}
 
 string Car::GetName() { return c_name; }
 
@@ -70,14 +93,12 @@ Driver::Driver(const string &name, int age, const Car &c)
 void Driver::SetCar(const Car &c) { d_car = c; }
 
 void Driver::DisplayDriverInfo() const {
-    cout << "Driver Info" << endl;
-    cout << "Name: " << d_name << endl;
-    cout << "Age: " << d_age << endl;
-    cout << endl;
-    d_car.DisplayInfo();
-  }
-
-
+  cout << "Driver Info" << endl;
+  cout << "Name: " << d_name << endl;
+  cout << "Age: " << d_age << endl;
+  cout << endl;
+  d_car.DisplayInfo();
+}
 
 int main() {
   Car myCar("Bmw", "m5", 2025, "black", "diesel");
