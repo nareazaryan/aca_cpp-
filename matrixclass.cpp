@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-//53 task
+// 53 task
 
 class Matrix {
 private:
@@ -17,6 +17,8 @@ public:
 
   Matrix &operator++();
   Matrix operator++(int);
+  friend ostream &operator<<(ostream &out, const Matrix &obj);
+
   void Input();
   void Display() const;
 };
@@ -83,6 +85,18 @@ Matrix Matrix::operator++(int) {
   Matrix temp(*this);
   ++(*this);
   return temp;
+}
+
+ostream &operator<<(ostream &os, const Matrix &obj) {
+  for (int i = 0; i < obj.rows; ++i) {
+    for (int j = 0; j < obj.cols; ++j) {
+      os << obj.data[i][j];
+      if (j < obj.cols - 1)
+        os << " ";
+    }
+    os << endl;
+  }
+  return os;
 }
 
 void Matrix::Input() {
