@@ -3,7 +3,6 @@
 #define MATRIX_H
 using namespace std;
 
-
 class Matrix {
 private:
   int rows;
@@ -23,9 +22,9 @@ public:
 
   void Input();
   void Display() const;
+
   void SaveInFile(const string &file_name) const;
-
+  void FillFromFile(const string &file_name) const;
 };
-
 
 #endif

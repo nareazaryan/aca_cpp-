@@ -1,5 +1,5 @@
-#include "Matrix.h"
 #include <fstream>
+#include "Matrix.h"
 
 Matrix::Matrix(int r, int c) {
   rows = r;
@@ -107,3 +107,23 @@ void Matrix::SaveInFile(const string &file_name) const {
   outFile.close();
   cout << "Matrix successfully saved" << endl;
 }
+
+void Matrix::FillFromFile(const string &file_name) const {
+       ifstream fin(file_name);
+       if (!fin) {
+            cerr << "Error opening file " << file_name << endl;
+            return;
+        };
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                if (!(fin >> data[i][j])) {
+                    cerr << "Not enough numbers in the file!" << endl;
+                    return;
+                }
+            }
+        }
+
+        cout << "Matrix filled successfully from " << file_name << endl;
+    }
+
+
