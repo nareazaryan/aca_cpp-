@@ -24,7 +24,7 @@ public:
   void Display() const;
 
   void SaveInFile(const string &file_name) const;
-  void FillFromFile(const string &file_name) const;
+  void FillFromFile(const string &file_name) ;
 };
 
 #endif

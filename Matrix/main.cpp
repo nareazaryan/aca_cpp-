@@ -13,7 +13,7 @@ int main() {
 
   // A.SaveInFile("matrix_output.txt");
 
-  Matrix B(3, 4);
+  Matrix B(3, 3);
   B.FillFromFile("integers.txt");
   B.Display();
 }

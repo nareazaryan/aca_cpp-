@@ -108,7 +108,7 @@ void Matrix::SaveInFile(const string &file_name) const {
   cout << "Matrix successfully saved" << endl;
 }
 
-void Matrix::FillFromFile(const string &file_name) const {
+void Matrix::FillFromFile(const string &file_name)  {
        ifstream fin(file_name);
        if (!fin) {
             cerr << "Error opening file " << file_name << endl;
