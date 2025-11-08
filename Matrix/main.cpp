@@ -1,20 +1,15 @@
-#include <iostream>
 #include "Matrix.h"
+#include <iostream>
 using namespace std;
 
-
 int main() {
-  Matrix A(2, 2), B(2, 2);
+  Matrix A(2, 4);
 
-  cout << "Enter first matrix:" << endl;
+  cout << "Enter a matrix:" << endl;
   A.Input();
-
-  cout << endl << "Enter second matrix:" << endl;
-  B.Input();
 
   cout << endl << "Matrix A:" << endl;
   A.Display();
 
-  cout << endl << "Matrix B:" << endl;
-  B.Display();
+  A.SaveInFile("matrix_output.txt");
 }

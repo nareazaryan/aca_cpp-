@@ -1,4 +1,6 @@
 #include "Matrix.h"
+#include <fstream>
+
 Matrix::Matrix(int r, int c) {
   rows = r;
   cols = c;
@@ -91,4 +93,17 @@ void Matrix::Display() const {
     }
     cout << endl;
   }
+}
+
+void Matrix::SaveInFile(const string &file_name) const {
+  ofstream outFile(file_name);
+  outFile << "Matrix (" << rows << "x" << cols << "):" << endl;
+  for (int i = 0; i < rows; ++i) {
+    for (int j = 0; j < cols; ++j)
+      outFile << data[i][j] << " ";
+    outFile << endl;
+  }
+
+  outFile.close();
+  cout << "Matrix successfully saved" << endl;
 }

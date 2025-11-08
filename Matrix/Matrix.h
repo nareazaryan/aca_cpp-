@@ -23,6 +23,8 @@ public:
 
   void Input();
   void Display() const;
+  void SaveInFile(const string &file_name) const;
+
 };
 
 
