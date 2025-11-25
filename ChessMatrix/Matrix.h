@@ -4,7 +4,7 @@
 #include <iostream>
 
 class Matrix {
-private:
+protected:
   char **m_data;
   int m_size;
 
@@ -14,6 +14,9 @@ public:
   virtual ~Matrix();
 
   Matrix &operator=(const Matrix &other);
+
+  Matrix(Matrix &&other);
+  Matrix &operator=(Matrix &&other);
 
   void pasteValue(char value, int row, int col);
   char getElement(int row, int col) const;

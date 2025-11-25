@@ -9,6 +9,10 @@ public:
     Chessboard(const Chessboard& other);
 
     Chessboard& operator=(const Chessboard& other);
+    //added move constructor and operator=
+    Chessboard(Chessboard&& other);
+    Chessboard& operator=(Chessboard&& other);
+
 
     void initBoard();
     void printBoard() const;

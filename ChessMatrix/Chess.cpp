@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Chess.h"
+using namespace std;
 
 Chessboard::Chessboard(int size)
     : Matrix(size) {}
@@ -7,9 +8,17 @@ Chessboard::Chessboard(int size)
 Chessboard::Chessboard(const Chessboard& other)
     : Matrix(other) {}
 
-Chessboard& Chessboard::operator=(const Chessboard& other) {
+
+
+Chessboard::Chessboard(Chessboard&& other)
+    : Matrix(move(other))
+{
+    cout << "Chessboard move constructor" <<endl;
+}
+
+Chessboard& Chessboard::operator=(Chessboard&& other) {
     if (this != &other) {
-        Matrix::operator=(other);
+        Matrix::operator=(move(other));
     }
     return *this;
 }
