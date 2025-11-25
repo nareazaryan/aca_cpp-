@@ -14,7 +14,7 @@ Chessboard::Chessboard(Chessboard&& other)
     : Matrix(move(other))
 {
     cout << "Chessboard move constructor" <<endl;
-}
+}       
 
 Chessboard& Chessboard::operator=(Chessboard&& other) {
     if (this != &other) {

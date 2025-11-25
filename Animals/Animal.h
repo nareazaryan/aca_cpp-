@@ -17,6 +17,9 @@ public:
   Animal(const Animal &other);
   Animal& operator=(const Animal& other);
 
+  Animal(Animal&& other) noexcept;
+  Animal& operator=(Animal&& other) noexcept;
+
   string getName() const;
   string getSound() const;
   int getAge() const;

@@ -21,6 +21,26 @@ Animal &Animal::operator=(const Animal &other) {
   return *this;
 }
 
+Animal::Animal(Animal &&other) noexcept
+    : name(move(other.name)), sound(move(other.sound)), age(other.age),
+      weight(other.weight) {
+  other.age = 0;
+  other.weight = 0.0;
+}
+
+Animal &Animal::operator=(Animal &&other) noexcept {
+  if (this != &other) {
+    name = move(other.name);
+    sound = move(other.sound);
+    age = other.age;
+    weight = other.weight;
+
+    other.age = 0;
+    other.weight = 0.0;
+  }
+  return *this;
+}
+
 string Animal::getName() const { return name; }
 string Animal::getSound() const { return sound; }
 int Animal::getAge() const { return age; }
