@@ -1,8 +1,11 @@
 #include "Animal.h"
 
+int Animal::count = 0;
+
 Animal::Animal(string name = "no name", string sound = " ", int age = 0,
                double weight = 0.0)
-    : name(name), sound(sound), age(age), weight(weight) {}
+    : name(name), sound(sound), age(age), weight(weight) {
+}
 
 Animal::Animal(const Animal &other) {
   name = other.name;
@@ -26,7 +29,7 @@ Animal::Animal(Animal &&other) noexcept
       weight(other.weight) {
   other.age = 0;
   other.weight = 0.0;
-}
+  }
 
 Animal &Animal::operator=(Animal &&other) noexcept {
   if (this != &other) {
@@ -40,6 +43,7 @@ Animal &Animal::operator=(Animal &&other) noexcept {
   }
   return *this;
 }
+
 
 string Animal::getName() const { return name; }
 string Animal::getSound() const { return sound; }
@@ -63,4 +67,7 @@ ostream &operator<<(ostream &os, const Animal &a) {
   return os;
 }
 
-Animal::~Animal() { cout << "Destructor called!" << endl; }
+Animal::~Animal() {
+  cout << "Destructor called!" << endl;
+  count--;
+}

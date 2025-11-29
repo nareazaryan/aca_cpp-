@@ -15,10 +15,10 @@ protected:
 public:
   Animal(string name, string sound, int age, double weight);
   Animal(const Animal &other);
-  Animal& operator=(const Animal& other);
+  Animal &operator=(const Animal &other);
 
-  Animal(Animal&& other) noexcept;
-  Animal& operator=(Animal&& other) noexcept;
+  Animal(Animal &&other) noexcept;
+  Animal &operator=(Animal &&other) noexcept;
 
   string getName() const;
   string getSound() const;
@@ -31,7 +31,7 @@ public:
   void setWeight(double w);
 
   void Info() const;
-  friend ostream& operator<<(ostream& os, const Animal& a);
+  friend ostream &operator<<(ostream &os, const Animal &a);
 
   ~Animal();
 };
