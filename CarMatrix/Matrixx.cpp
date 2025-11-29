@@ -1,4 +1,5 @@
 #include "Matrixx.h"
+#include "Car.h"
 #include <iostream>
 
 Matrix::Matrix(int size) : m_size(size) {
@@ -32,6 +33,8 @@ Matrix::Matrix(const Matrix &other) : m_size(other.m_size) {
     }
   }
 }
+
+int Matrix::getCarCount() const { return Car::GetCount(); }
 
 void Matrix::Initialize() {
   string names[] = {"BMW", "Toyota", "Audi", "Mercedes", "Nissan"};

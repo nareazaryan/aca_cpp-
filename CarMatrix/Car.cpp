@@ -1,10 +1,15 @@
 
-#include <iostream>
 #include "Car.h"
+#include <iostream>
 using namespace std;
+
+int Car::count = 0;
+
 Car::Car(string name, string model, int year, string color, string engineType)
     : c_name(name), c_model(model), c_year(year), c_color(color),
-      c_engineType(engineType){};
+      c_engineType(engineType) {
+  count++;
+};
 
 Car::Car(const Car &other) {
   c_name = other.c_name;
@@ -12,11 +17,12 @@ Car::Car(const Car &other) {
   c_year = other.c_year;
   c_color = other.c_color;
   c_engineType = other.c_engineType;
+  count++;
   cout << "Copy constructor called!" << endl;
 }
 
 Car &Car::operator=(const Car &other) {
-  if (this != &other) { 
+  if (this != &other) {
     c_name = other.c_name;
     c_model = other.c_model;
     c_year = other.c_year;
@@ -26,6 +32,8 @@ Car &Car::operator=(const Car &other) {
   }
   return *this;
 }
+
+int Car::GetCount() { return count; }
 
 string Car::GetName() { return c_name; }
 
@@ -43,4 +51,4 @@ void Car::DisplayInfo() const {
   cout << "Engine Type: " << c_engineType << endl;
 }
 
-Car::~Car(){};
+Car::~Car(){count--;};

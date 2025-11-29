@@ -14,6 +14,8 @@ public:
   Matrix(const Matrix &other);
   Matrix &operator=(const Matrix &other);
 
+
+  int getCarCount() const;
   void Initialize();
   void Print() const;
   void pasteCar(const Car &c, int row, int col);

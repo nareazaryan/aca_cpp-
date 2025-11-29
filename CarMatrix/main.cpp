@@ -7,6 +7,10 @@ using namespace std;
 int main() {
     Matrix m(2);
     m.Initialize();   
-    m.Print();       
+    m.Print();  
+
+    cout << endl;
+     cout << m.getCarCount() << endl;
+
     return 0;
 }
