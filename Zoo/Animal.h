@@ -20,6 +20,8 @@ public:
   bool operator<(const Animal &other) const;
   bool operator>(const Animal &other) const;
   bool operator==(const Animal &other) const;
+
+  void IsAnimal(Animal *obj);
 };
 
 class Dog : public Animal {

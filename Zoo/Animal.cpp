@@ -21,10 +21,17 @@ bool Animal::operator==(const Animal &other) const {
   return weight == other.weight;
 }
 
+void Animal::Voice() const { cout << "Some animal sound" << endl; }
 
-void Animal::Voice() const {
-    cout << "Some animal sound" << endl;
+void Animal::IsAnimal(Animal *animal) {
+  if (dynamic_cast<Animal *>(animal) != 0) {
+    cout << "This object is an animal" << endl;
+  } else {
+    cout << "This object is not an animal" << endl;
+  }
 }
+
+
 
 Animal::~Animal() {}
 
