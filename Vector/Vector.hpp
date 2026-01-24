@@ -1,5 +1,4 @@
-#ifndef VECTOR_H
-#define VECTOR_H
+#pragma once
 
 template <typename T> class Vector {
   T *data;
@@ -80,6 +79,3 @@ public:
 
   const T &operator[](unsigned index) const { return data[index]; }
 };
-
-
-#endif
