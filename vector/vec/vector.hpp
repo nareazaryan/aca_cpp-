@@ -75,6 +75,23 @@ public:
     data[size++] = value;
   }
 
+   void pop_back() {
+    if (size > 0) {
+      --size;
+    }
+  }
+
+   bool empty() const {
+    return size == 0;
+  }
+
+  void clear() {
+    delete[] data;
+    data = 0;
+    size = 0;
+    capacity = 0;
+  }
+
   T &operator[](unsigned index) { return data[index]; }
 
   const T &operator[](unsigned index) const { return data[index]; }

@@ -1,31 +1,20 @@
 #include <iostream>
-#include <../Vector/Vector.hpp>
 #include "queue.hpp"
-using namespace std;
 
-int main() { 
+int main() {
+    Queue<int> q;
 
-Queue<int> q;
-
-    cout << "Empty? " << q.empty() << endl;
-
+    q.push(5);
     q.push(10);
-    q.push(20);
-    q.push(30);
+    q.push(15);
 
-    cout << "Size: " << q.size() << endl;
-    cout << "Front element: " << q.front() << endl;
+    std::cout << "Front: " << q.front() << std::endl; // 5
+    std::cout << "Size: " << q.size() << std::endl;   // 3
 
-    q.pop(); 
+    q.pop();
 
-    cout << "After pop, front: " << q.front() << endl;
-    cout << "Size: " << q.size() << endl;
-
-    Queue<int> q2 = {20, 30};
-
-    cout << "Queues q1 and q2 are equal? " << q.equals(q2) << endl;
-
-    q.clear();
+    std::cout << "Front after pop: " << q.front() << std::endl; // 10
+    std::cout << "Size after pop: " << q.size() << std::endl;  // 2
 
     return 0;
 }
