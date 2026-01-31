@@ -1,4 +1,5 @@
 #pragma once
+#include <stdexcept> 
 
 template <typename T> class Vector {
   T *data;
@@ -91,6 +92,24 @@ public:
     size = 0;
     capacity = 0;
   }
+
+
+  //at 
+
+  T& at(size_t index) {
+    if (index >= size) {
+        throw std::out_of_range("index out of range");
+    }
+    return data[index];
+}
+
+const T& at(size_t index) const {
+    if (index >= size) {
+        throw std::out_of_range("index out of range");
+    }
+    return data[index];
+}
+
 
   T &operator[](unsigned index) { return data[index]; }
 
