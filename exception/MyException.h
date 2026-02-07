@@ -9,6 +9,7 @@ private:
 
 public:
     MyException(const std::string& message) : errorMessage(message) {}
+    virtual ~MyException() noexcept = default; 
 
     const char* what() const noexcept override {
         return errorMessage.c_str();
