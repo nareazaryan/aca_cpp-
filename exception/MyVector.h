@@ -18,17 +18,8 @@ public:
     }
 
     int getElement(size_t index) const {
-        if (index >= data.size()) {
-            throw MyException("Error: Index out of bounds!");
-        }
-        return data[index];
-    }
 
-    void removeElement(size_t index) {
-        if (index >= data.size()) {
-            throw MyException("Error: Cannot remove - index out of bounds!");
-        }
-        data.erase(data.begin() + index);
+        return data[index];
     }
 
     size_t getSize() const {
